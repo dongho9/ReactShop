@@ -126,7 +126,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const onCheckEnter = (e) => {
     if (e.key === "Enter") {
-      navigate(`?${e.target.value}`);
+      navigate(`?q=${e.target.value}`);
     }
   };
   const goToLogin = () => {

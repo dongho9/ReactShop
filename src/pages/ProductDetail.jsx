@@ -34,7 +34,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const getProductDetail = async () => {
     setLoading(true);
-    const url = `http://localhost:3000/products/${id}`;
+    const url = `https://my-json-server.typicode.com/dongho9/ReactShop/${id}`;
     const response = await fetch(url);
     const data = await response.json();
     setLoading(false);

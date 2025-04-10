@@ -4,24 +4,23 @@ import ProductCard from "../components/ProductCard";
 import { Container, Row, Col } from "react-bootstrap";
 
 const ProductAll = () => {
-  const [query, setQuery] = useSearchParams();
+  const [query] = useSearchParams();
   const [productList, setProductList] = useState([]);
+
   useEffect(() => {
     getProdcuts();
-  }, []);
+  }, [query]);
+
   const getProdcuts = async () => {
-    let searchQuery = query.get("q"); // ← 홑따옴표도 OK
+    const searchQuery = query.get("q") || "";
+    console.log("쿼리값:", searchQuery);
 
-    console.log(searchQuery);
-    // const url = `http://localhost:3000/products?q=${searchQuery}`;
-    const url = searchQuery
-      ? `http://localhost:3000/products?q=${searchQuery}`
-      : `http://localhost:3000/products`;
-
+    let url = `https://my-json-server.typicode.com/dongho9/ReactShop/products/?q=${searchQuery}`;
     const response = await fetch(url);
     const data = await response.json();
     setProductList(data);
   };
+
   return (
     <Container>
       <Row className="justify-content-center">
@@ -36,3 +35,5 @@ const ProductAll = () => {
 };
 
 export default ProductAll;
+
+// https://my-json-server.typicode.com/dongho9/ReactShop
