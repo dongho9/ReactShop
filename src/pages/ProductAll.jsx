@@ -23,7 +23,7 @@ const ProductAll = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row>
         {productList.map((menu, i) => (
           <Col key={i} className="mb-4" xs={12} sm={6} md={4} lg={3}>
             <ProductCard item={menu} />
@@ -37,3 +37,4 @@ const ProductAll = () => {
 export default ProductAll;
 
 // https://my-json-server.typicode.com/dongho9/ReactShop
+//json server 배포하려면 my json server활용한다.
